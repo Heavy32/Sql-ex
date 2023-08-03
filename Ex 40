@@ -19,3 +19,12 @@ Join
 	Having Count(*) = 1
 ) as s2 on
 s1.maker = s2.maker
+
+
+/////После прочтения форума
+Select Distinct maker, type from product
+where maker in (
+select maker from product
+group by maker
+Having Count(*) > 1 and Count(distinct type) = 1
+)
