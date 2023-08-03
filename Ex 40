@@ -1,0 +1,21 @@
+№40 
+Найти производителей, которые выпускают более одной модели, при этом все выпускаемые производителем модели являются продуктами одного типа.
+Вывести: maker, type
+
+Select s1.maker, s1.type from
+(
+	Select a.maker, a.type from
+	(
+		Select maker, type from product
+		group by maker, type
+		Having Count(*) > 1
+	) as a
+	Group by a.Maker, a.type
+) as s1
+Join 
+(
+	Select a.maker from (Select Distinct maker, type from Product) as a
+	Group by a.Maker
+	Having Count(*) = 1
+) as s2 on
+s1.maker = s2.maker
