@@ -1,0 +1,5 @@
+Укажите сражения, которые произошли в годы, не совпадающие ни с одним из годов спуска кораблей на воду.
+
+//неправильно на другой базе
+Select name from battles 
+where Datepart(year, date) not in (Select launched from Ships)
