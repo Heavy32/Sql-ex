@@ -1,0 +1,9 @@
+Найдите названия всех кораблей в базе данных, состоящие из трех и более слов (например, King George V).
+Считать, что слова в названиях разделяются единичными пробелами, и нет концевых пробелов.
+
+Select Distinct * from(
+	Select ship from Outcomes 
+	Union All
+	Select name from Ships
+) as s
+where s.ship like '% % %'
