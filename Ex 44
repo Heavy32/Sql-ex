@@ -1,0 +1,8 @@
+Найдите названия всех кораблей в базе данных, начинающихся с буквы R.
+
+Select Distinct * from(
+	Select ship from Outcomes 
+	Union All
+	Select name from Ships
+) as s
+where s.ship like 'R%'
