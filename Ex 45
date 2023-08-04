@@ -7,3 +7,11 @@ FROM Outcomes o
  LEFT JOIN 
  Classes c ON s.class=c.class
 WHERE o.battle = 'Guadalcanal'
+
+...
+SELECT
+  ship, displacement, numGuns
+  FROM Outcomes A
+    LEFT JOIN Ships C ON A.ship = C.name
+    LEFT JOIN Classes B ON A.ship = B.class OR C.class = B.class
+  WHERE battle = 'Guadalcanal'
