@@ -1,0 +1,6 @@
+Задание: 50 (Serge I: 2002-11-05)
+Найдите сражения, в которых участвовали корабли класса Kongo из таблицы Ships.
+
+Select distinct battle from Outcomes as o 
+Join Ships as s on o.ship = s.name
+where s.class = 'Kongo'
