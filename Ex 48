@@ -1,0 +1,10 @@
+Задание: 48 (Serge I: 2003-02-16)
+Найдите классы кораблей, в которых хотя бы один корабль был потоплен в сражении.
+
+Select class from Outcomes
+Join ships on ships.name = outcomes.ship
+Where result = 'sunk'
+Union
+Select class from Outcomes
+Join classes on classes.class = outcomes.ship
+Where result = 'sunk'
