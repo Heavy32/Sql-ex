@@ -1,0 +1,10 @@
+Задание: 49 (Serge I: 2003-02-17)
+Найдите названия кораблей с орудиями калибра 16 дюймов (учесть корабли из таблицы Outcomes).
+
+Select class from Classes
+Join Outcomes on outcomes.ship = classes.class
+Where bore = 16.0
+Union
+Select ships.name from Ships
+Join Classes on ships.class = classes.class
+Where bore = 16.0
